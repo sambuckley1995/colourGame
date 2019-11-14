@@ -6,14 +6,15 @@ let rgbDisplay = document.getElementById("rgb");
 let message = document.getElementById("message");
 let resetButton = document.getElementById("reset");
 
+console.log(resetButton);
+
 //  generateRandomColor function
-export const randomColor = () => {
+export const randomColor = rgb => {
   let r = Math.ceil(Math.random() * 255);
   let g = Math.ceil(Math.random() * 255);
   let b = Math.ceil(Math.random() * 255);
   return `rgb(${r}, ${g}, ${b})`;
 };
-
 // generateRandomColors array function - poor naming convention, sorry
 export const generateRandomColors = numOfTiles => {
   let array = [];
@@ -94,7 +95,7 @@ const play = () => {
 
 // render score function
 
-export const renderScore = () => {
+export const renderScore = score => {
   document.getElementById("score").innerHTML = "Score: " + score;
 };
 
