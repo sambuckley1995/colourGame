@@ -95,7 +95,7 @@ const play = () => {
 
 // render score function
 
-export const renderScore = score => {
+export const renderScore = () => {
   document.getElementById("score").innerHTML = "Score: " + score;
 };
 
