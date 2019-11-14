@@ -1,0 +1,21 @@
+{
+  "name": "colourGame",
+  "version": "1.0.1",
+  "main": "index.html",
+  "repository": "https://github.com/sambuckley1995/colourGame.git",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "setupFiles": [
+      "./testSetup.js"
+    ]
+  }
+}
