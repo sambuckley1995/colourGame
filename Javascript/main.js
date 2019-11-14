@@ -7,7 +7,7 @@ let message = document.getElementById("message");
 let resetButton = document.getElementById("reset");
 
 //  generateRandomColor function
-const randomColor = () => {
+export const randomColor = () => {
   let r = Math.ceil(Math.random() * 255);
   let g = Math.ceil(Math.random() * 255);
   let b = Math.ceil(Math.random() * 255);
@@ -15,7 +15,7 @@ const randomColor = () => {
 };
 
 // generateRandomColors array function - poor naming convention, sorry
-const generateRandomColors = numOfTiles => {
+export const generateRandomColors = numOfTiles => {
   let array = [];
   for (let i = 0; i < numOfTiles; i++) {
     array.push(randomColor());
@@ -24,11 +24,10 @@ const generateRandomColors = numOfTiles => {
 };
 
 let colors = generateRandomColors(numOfTiles);
-console.log(colors);
 
 // pick a color function
 
-const winningColor = () => {
+export const winningColor = () => {
   let random = Math.floor(Math.random() * numOfTiles);
   return colors[random];
 };
@@ -93,17 +92,11 @@ const play = () => {
   }
 };
 
-console.log(score);
-
 // render score function
 
-const renderScore = () => {
+export const renderScore = () => {
   document.getElementById("score").innerHTML = "Score: " + score;
 };
 
-const init = () => {
-  newLevel();
-  play();
-};
-
-init();
+newLevel();
+play();
