@@ -33,14 +33,6 @@ export const winningColor = () => {
   return colors[random];
 };
 
-// update tiles function
-
-const changeColors = color => {
-  for (let i = 0; i < numOfTiles; i++) {
-    tiles[i].style.backgroundColor = color;
-  }
-};
-
 // new level function
 
 winColor = winningColor();
