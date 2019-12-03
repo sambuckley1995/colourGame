@@ -9,7 +9,7 @@ let resetButton = document.getElementById("reset");
 console.log(resetButton);
 
 //  generateRandomColor function
-export const randomColor = rgb => {
+const randomColor = rgb => {
   let r = Math.ceil(Math.random() * 255);
   let g = Math.ceil(Math.random() * 255);
   let b = Math.ceil(Math.random() * 255);
