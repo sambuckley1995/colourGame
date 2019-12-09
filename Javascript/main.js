@@ -6,22 +6,19 @@ let rgbDisplay = document.getElementById("rgb");
 let message = document.getElementById("message");
 let resetButton = document.getElementById("reset");
 
-console.log(resetButton);
-
 //  generateRandomColor function
-const randomColor = rgb => {
-  let r = Math.ceil(Math.random() * 255);
-  let g = Math.ceil(Math.random() * 255);
-  let b = Math.ceil(Math.random() * 255);
-  return `rgb(${r}, ${g}, ${b})`;
+const randomColor = () => {
+  return `rgb(${Math.ceil(Math.random() * 255)}, ${Math.ceil(
+    Math.random() * 255
+  )}, ${Math.ceil(Math.random() * 255)})`;
 };
 // generateRandomColors array function - poor naming convention, sorry
 export const generateRandomColors = numOfTiles => {
-  let array = [];
+  let colours = [];
   for (let i = 0; i < numOfTiles; i++) {
-    array.push(randomColor());
+    colours.push(randomColor());
   }
-  return array;
+  return colours;
 };
 
 let colors = generateRandomColors(numOfTiles);
@@ -41,7 +38,6 @@ const newLevel = () => {
   colors = generateRandomColors(numOfTiles);
   winColor = winningColor();
   rgbDisplay.textContent = winColor;
-  message.textContent = " ";
   renderScore();
   for (let i = 0; i < numOfTiles; i++) {
     tiles[i].style.backgroundColor = colors[i];
@@ -66,20 +62,24 @@ const play = () => {
   for (let i = 0; i < numOfTiles; i++) {
     tiles[i].addEventListener("click", function() {
       let clickedColor = this.style.backgroundColor;
-      if (clickedColor === winColor) {
-        message.classList.remove("wrong");
-        message.classList.add("right");
-        score += 3;
-        renderScore();
-        newLevel();
-        message.textContent = "Correct";
+      if (clickedColor === "white") {
+        console.log("please stop trying to break the game");
       } else {
-        this.style.backgroundColor = "white";
-        message.classList.add("wrong");
-        message.classList.remove("right");
-        message.textContent = "Try Again";
-        score -= 1;
-        renderScore();
+        if (clickedColor === winColor) {
+          message.classList.remove("wrong");
+          message.classList.add("right");
+          score += 3;
+          renderScore();
+          newLevel();
+          message.textContent = "Correct";
+        } else {
+          this.style.backgroundColor = "white";
+          message.classList.add("wrong");
+          message.classList.remove("right");
+          message.textContent = "Try Again";
+          score -= 1;
+          renderScore();
+        }
       }
     });
   }
